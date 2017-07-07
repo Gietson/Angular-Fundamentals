@@ -1,0 +1,36 @@
+// events-list.component.ts
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var core_1 = require("@angular/core");
+var event_service_1 = require("./shared/event.service");
+var toastr_service_1 = require("../common/toastr.service");
+var EventsListComponent = (function () {
+    function EventsListComponent(eventService, toastr) {
+        this.eventService = eventService;
+        this.toastr = toastr;
+    }
+    EventsListComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.eventService.getEvents().subscribe(function (event) { _this.events = events; });
+    };
+    EventsListComponent.prototype.handleThumbnailClick = function (eventName) {
+        this.toastr.success(eventName);
+    };
+    return EventsListComponent;
+}());
+EventsListComponent = __decorate([
+    core_1.Component({
+        template: "\n\t\t<div>\n\t\t\t<h1>Upcoming Angular 2 Events </h1>\n\t\t\t<hr>\n\t\t\t<div class=\"row\">\n\t\t\t\t<div class=\"col-md-5\" *ngFor=\"let event of events\">\n\t\t\t\t\t<event-thumbnail (click)=\"handleThumbnailClick(event.name)\" [event]=\"event\"></event-thumbnail>\n\t\t\t\t</div>\n\t\t</div>\n\t"
+    }),
+    __metadata("design:paramtypes", [event_service_1.EventService, toastr_service_1.ToastrService])
+], EventsListComponent);
+exports.EventsListComponent = EventsListComponent;
+//# sourceMappingURL=events-list.component.js.map
