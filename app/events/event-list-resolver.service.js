@@ -1,4 +1,4 @@
-// navbar.component.ts
+// event-list-resolver.service.ts
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,18 +10,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var NavBarComponent = (function () {
-    function NavBarComponent() {
+var event_service_1 = require("./shared/event.service");
+var EventListResolver = (function () {
+    function EventListResolver(eventService) {
+        this.eventService = eventService;
     }
-    return NavBarComponent;
+    EventListResolver.prototype.resolve = function () {
+        return this.eventService.getEvents().map(function (events) { return events; });
+    };
+    return EventListResolver;
 }());
-NavBarComponent = __decorate([
-    core_1.Component({
-        selector: 'nav-bar',
-        templateUrl: 'app/nav/navbar.component.html',
-        styles: ["\n\t\t.nav.navbar-nav {font-size:15px;}\n\t\t#searchForm {margin-right:100px;}\n\t\t@media (max-width: 1200px) {#searchForm{display:none}}\n        li > a.active { color:#F97924; }\n\t"]
-    }),
-    __metadata("design:paramtypes", [])
-], NavBarComponent);
-exports.NavBarComponent = NavBarComponent;
-//# sourceMappingURL=navbar.component.js.map
+EventListResolver = __decorate([
+    core_1.Injectable(),
+    __metadata("design:paramtypes", [event_service_1.EventService])
+], EventListResolver);
+exports.EventListResolver = EventListResolver;
+//# sourceMappingURL=event-list-resolver.service.js.map

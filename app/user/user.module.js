@@ -1,4 +1,4 @@
-// navbar.component.ts
+// user.module.ts
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -10,18 +10,27 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require("@angular/core");
-var NavBarComponent = (function () {
-    function NavBarComponent() {
+var common_1 = require("@angular/common");
+var router_1 = require("@angular/router");
+var user_routes_1 = require("./user.routes");
+var profile_component_1 = require("./profile.component");
+var UserModule = (function () {
+    function UserModule() {
     }
-    return NavBarComponent;
+    return UserModule;
 }());
-NavBarComponent = __decorate([
-    core_1.Component({
-        selector: 'nav-bar',
-        templateUrl: 'app/nav/navbar.component.html',
-        styles: ["\n\t\t.nav.navbar-nav {font-size:15px;}\n\t\t#searchForm {margin-right:100px;}\n\t\t@media (max-width: 1200px) {#searchForm{display:none}}\n        li > a.active { color:#F97924; }\n\t"]
+UserModule = __decorate([
+    core_1.NgModule({
+        imports: [
+            common_1.CommonModule,
+            router_1.RouterModule.forChild(user_routes_1.userRoutes)
+        ],
+        declarations: [
+            profile_component_1.ProfileComponent
+        ],
+        providers: []
     }),
     __metadata("design:paramtypes", [])
-], NavBarComponent);
-exports.NavBarComponent = NavBarComponent;
-//# sourceMappingURL=navbar.component.js.map
+], UserModule);
+exports.UserModule = UserModule;
+//# sourceMappingURL=user.module.js.map
