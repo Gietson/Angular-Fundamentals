@@ -9,14 +9,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var __param = (this && this.__param) || function (paramIndex, decorator) {
+    return function (target, key) { decorator(target, key, paramIndex); }
+};
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var auth_service_1 = require("./auth.service");
 var router_1 = require("@angular/router");
+var toastr_service_1 = require("../common/toastr.service");
 var ProfileComponent = (function () {
-    function ProfileComponent(router, authService) {
+    function ProfileComponent(router, authService, toastr) {
         this.router = router;
         this.authService = authService;
+        this.toastr = toastr;
     }
     ProfileComponent.prototype.ngOnInit = function () {
         this.firstName = new forms_1.FormControl(this.authService.currentUser.firstName, [forms_1.Validators.required, forms_1.Validators.pattern('[a-zA-Z].*')]);
@@ -30,6 +35,7 @@ var ProfileComponent = (function () {
         if (this.profileForm.valid) {
             this.authService.updateCurrentUser(formValues.firstName, formValues.lastName);
             this.router.navigate(['events']);
+            this.toastr.success('Profile Saved');
         }
     };
     ProfileComponent.prototype.validateLastName = function () {
@@ -48,7 +54,8 @@ ProfileComponent = __decorate([
         templateUrl: 'app/user/profile.component.html',
         styles: ["\n      em { float:right; color: #E05C65; padding-left:10px; }\n      .error input { background-color: #E3C3C5; }\n      .error ::-webkit-inpit-placeholder { color: #999; }\n      .error ::-moz-placeholder { color: #999; }\n      .error :-moz-placeholder { color:#999; } \n      .error :ms-input-placeholder { color: #999; }\n    "]
     }),
-    __metadata("design:paramtypes", [router_1.Router, auth_service_1.AuthService])
+    __param(2, core_1.Inject(toastr_service_1.TOASTR_TOKEN)),
+    __metadata("design:paramtypes", [router_1.Router, auth_service_1.AuthService, Object])
 ], ProfileComponent);
 exports.ProfileComponent = ProfileComponent;
 //# sourceMappingURL=profile.component.js.map

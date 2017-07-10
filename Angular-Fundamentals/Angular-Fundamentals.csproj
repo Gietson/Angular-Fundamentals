@@ -13,11 +13,6 @@
     <PackageReference Include="AfominDotCom.NgProjectTemplate.Server" Version="1.0.2" />
   </ItemGroup>
 
-  <ItemGroup>
-    <None Include=".gitignore" />
-    
-  </ItemGroup>
-
   <PropertyGroup>
     <NgProjectAssetsFile Condition="'$(ProjectAssetsFile)' != ''">$(ProjectAssetsFile)</NgProjectAssetsFile>
     <NgProjectAssetsFile Condition="'$(NgProjectAssetsFile)' == ''">$(BaseIntermediateOutputPath)/project.assets.json</NgProjectAssetsFile>
