@@ -44,7 +44,8 @@ AppModule = __decorate([
             _404_component_1.Error404Component,
             index_1.CreateSessionComponent,
             index_1.SessionListComponent,
-            collapsible_well_component_1.CollapsibleWellComponent
+            collapsible_well_component_1.CollapsibleWellComponent,
+            index_1.DurationPipe
         ],
         providers: [
             index_1.EventService,
