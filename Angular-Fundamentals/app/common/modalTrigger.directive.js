@@ -22,7 +22,7 @@ var ModalTriggerDirective = (function () {
     ModalTriggerDirective.prototype.ngOnInit = function () {
         var _this = this;
         this.el.addEventListener('click', function (e) {
-            _this.$('#${this.modalId}').modal({});
+            _this.$("#" + _this.modalId).modal({});
         });
     };
     return ModalTriggerDirective;
