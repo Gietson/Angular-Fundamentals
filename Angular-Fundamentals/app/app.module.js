@@ -46,7 +46,9 @@ AppModule = __decorate([
             index_2.CollapsibleWellComponent,
             index_1.DurationPipe,
             index_2.SimpleModalComponent,
-            index_2.ModalTriggerDirective
+            index_1.UpvoteComponent,
+            index_2.ModalTriggerDirective,
+            index_1.LocationValidator
         ],
         providers: [
             index_1.EventService,
@@ -54,6 +56,7 @@ AppModule = __decorate([
             { provide: index_2.JQ_TOKEN, useValue: jQuery },
             index_1.EventRouteActivator,
             index_1.EventListResolver,
+            index_1.VoterService,
             auth_service_1.AuthService,
             {
                 provide: 'canDeactivateCreateEvent',
