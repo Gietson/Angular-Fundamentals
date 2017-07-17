@@ -12,6 +12,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require("@angular/core");
 var platform_browser_1 = require("@angular/platform-browser");
 var router_1 = require("@angular/router");
+var http_1 = require("@angular/http");
 var forms_1 = require("@angular/forms");
 var index_1 = require("./events/index");
 var events_app_component_1 = require("./events-app.component");
@@ -30,6 +31,7 @@ AppModule = __decorate([
         imports: [
             platform_browser_1.BrowserModule,
             forms_1.FormsModule,
+            http_1.HttpModule,
             forms_1.ReactiveFormsModule,
             router_1.RouterModule.forRoot(routes_1.appRoutes)
         ],
@@ -54,7 +56,7 @@ AppModule = __decorate([
             index_1.EventService,
             { provide: index_2.TOASTR_TOKEN, useValue: toastr },
             { provide: index_2.JQ_TOKEN, useValue: jQuery },
-            index_1.EventRouteActivator,
+            index_1.EventResolver,
             index_1.EventListResolver,
             index_1.VoterService,
             auth_service_1.AuthService,

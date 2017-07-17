@@ -18,7 +18,7 @@ var EventsListComponent = (function () {
         this.route = route;
     }
     EventsListComponent.prototype.ngOnInit = function () {
-        this.events = this.route.snapshot.data['events'];
+        this.events = this.route.snapshot.data["events"];
     };
     return EventsListComponent;
 }());

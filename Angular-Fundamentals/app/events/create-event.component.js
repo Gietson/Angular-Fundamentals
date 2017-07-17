@@ -19,18 +19,20 @@ var CreateEventComponent = (function () {
         this.isDirty = true;
     }
     CreateEventComponent.prototype.saveEvent = function (formValues) {
-        this.eventService.saveEvent(formValues);
-        this.isDirty = false;
-        this.router.navigate(['/events']);
+        var _this = this;
+        this.eventService.saveEvent(formValues).subscribe(function (event) {
+            _this.router.navigate(["/events"]);
+            _this.isDirty = false;
+        });
     };
     CreateEventComponent.prototype.cancel = function () {
-        this.router.navigate(['/events']);
+        this.router.navigate(["/events"]);
     };
     return CreateEventComponent;
 }());
 CreateEventComponent = __decorate([
     core_1.Component({
-        templateUrl: 'app/events/create-event.component.html',
+        templateUrl: "app/events/create-event.component.html",
         styles: ["\n      em { float:right; color: ##05C65; padding-left:10px; }\n      .error input { background-color: #E3C3C5; }\n      .error ::-webkit-inpit-placeholder { color: #999; }\n      .error ::-moz-placeholder { color: #999; }\n      .error :-moz-placeholder { color:#999; } \n      .error :ms-input-placeholder { color: #999; }\n    "]
     }),
     __metadata("design:paramtypes", [router_1.Router, index_1.EventService])

@@ -20,7 +20,9 @@ var NavBarComponent = (function () {
     }
     NavBarComponent.prototype.searchSessions = function (searchTerm) {
         var _this = this;
-        this.eventService.searchSessions(searchTerm).subscribe(function (sessions) { _this.foundSessions = sessions; });
+        this.eventService.searchSessions(searchTerm).subscribe(function (sessions) {
+            _this.foundSessions = sessions;
+        });
     };
     return NavBarComponent;
 }());

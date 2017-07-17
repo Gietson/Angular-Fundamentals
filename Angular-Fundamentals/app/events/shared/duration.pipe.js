@@ -15,17 +15,17 @@ var DurationPipe = (function () {
     }
     DurationPipe.prototype.transform = function (value) {
         switch (value) {
-            case 1: return 'Half Hour';
-            case 2: return 'One Hour';
-            case 3: return 'Half Day';
-            case 4: return 'Full Day';
+            case 1: return "Half Hour";
+            case 2: return "One Hour";
+            case 3: return "Half Day";
+            case 4: return "Full Day";
             default: return value.toString();
         }
     };
     return DurationPipe;
 }());
 DurationPipe = __decorate([
-    core_1.Pipe({ name: 'duration' }),
+    core_1.Pipe({ name: "duration" }),
     __metadata("design:paramtypes", [])
 ], DurationPipe);
 exports.DurationPipe = DurationPipe;

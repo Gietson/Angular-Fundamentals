@@ -5,9 +5,9 @@ import { AuthService } from '../user/auth.service'
 import { ISession, EventService } from "../events/index";
 
 @Component({
-    selector: 'nav-bar',
-    templateUrl: 'app/nav/navbar.component.html',
-    styles: [`
+  selector: 'nav-bar',
+  templateUrl: 'app/nav/navbar.component.html',
+  styles: [`
 		.nav.navbar-nav {font-size:15px;}
 		#searchForm {margin-right:100px;}
 		@media (max-width: 1200px) {#searchForm{display:none}}
@@ -15,14 +15,17 @@ import { ISession, EventService } from "../events/index";
 	`]
 })
 export class NavBarComponent {
-    searchTerm: string = '';
-    foundSessions: ISession[];
+  searchTerm: string = '';
+  foundSessions: ISession[];
 
-    constructor(private auth: AuthService, private eventService: EventService) {
+  constructor(private auth: AuthService, private eventService: EventService) {
 
-    }
+  }
 
-    searchSessions(searchTerm) {
-        this.eventService.searchSessions(searchTerm).subscribe(sessions => { this.foundSessions = sessions; })
-    }
+  searchSessions(searchTerm) {
+    this.eventService.searchSessions(searchTerm).subscribe
+      (sessions => {
+        this.foundSessions = sessions;
+      });
+  }
 }

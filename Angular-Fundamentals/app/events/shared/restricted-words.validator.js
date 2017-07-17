@@ -8,7 +8,7 @@ function restrictedWords(words) {
             .map(function (w) { return control.value.includes(w) ? w : null; })
             .filter(function (w) { return w != null; });
         return invalidWords && invalidWords.length > 0
-            ? { 'restrictedWords': invalidWords.join(', ') }
+            ? { 'restrictedWords': invalidWords.join(", ") }
             : null;
     };
 }

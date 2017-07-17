@@ -16,13 +16,13 @@ var EventDetailsComponent = (function () {
     function EventDetailsComponent(eventService, route) {
         this.eventService = eventService;
         this.route = route;
-        this.filterBy = 'all';
-        this.sortBy = 'votes';
+        this.filterBy = "all";
+        this.sortBy = "votes";
     }
     EventDetailsComponent.prototype.ngOnInit = function () {
         var _this = this;
-        this.route.params.forEach(function (params) {
-            _this.event = _this.eventService.getEvent(+params['id']);
+        this.route.data.forEach(function (data) {
+            _this.event = data["event"];
             _this.addMode = false;
         });
     };
@@ -33,7 +33,7 @@ var EventDetailsComponent = (function () {
         var nextId = Math.max.apply(null, this.event.sessions.map(function (s) { return s.id; }));
         session.id = nextId + 1;
         this.event.sessions.push(session);
-        this.eventService.updateEvent(this.event);
+        this.eventService.saveEvent(this.event).subscribe();
         this.addMode = false;
     };
     EventDetailsComponent.prototype.cancelAddSession = function () {
@@ -43,7 +43,7 @@ var EventDetailsComponent = (function () {
 }());
 EventDetailsComponent = __decorate([
     core_1.Component({
-        templateUrl: '/app/events/event-details/event-details.component.html',
+        templateUrl: "/app/events/event-details/event-details.component.html",
         styles: ["\n\t\t.container { padding-left:20px; padding-right:20px; }\n\t\t.event-image { height: 100px; }\n        a {cursor:pointer } \n\t"]
     }),
     __metadata("design:paramtypes", [event_service_1.EventService, router_1.ActivatedRoute])
