@@ -1,4 +1,3 @@
-// auth.service.ts
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -21,24 +20,47 @@ var AuthService = (function () {
         var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
         var options = new http_1.RequestOptions({ headers: headers });
         var loginInfo = { username: userName, password: password };
-        console.log(loginInfo);
-        return this.http
-            .post("/api/login", JSON.stringify(loginInfo), options)
+        return this.http.post('/api/login', JSON.stringify(loginInfo), options)
             .do(function (resp) {
             if (resp) {
                 _this.currentUser = resp.json().user;
             }
-        })
-            .catch(function (error) {
+        }).catch(function (error) {
             return Rx_1.Observable.of(false);
         });
     };
     AuthService.prototype.isAuthenticated = function () {
         return !!this.currentUser;
     };
+    AuthService.prototype.checkAuthenticationStatus = function () {
+        var _this = this;
+        return this.http.get('/api/currentIdentity').map(function (response) {
+            if (response._body) {
+                return response.json();
+            }
+            else {
+                return {};
+            }
+        })
+            .do(function (currentUser) {
+            if (!!currentUser.userName) {
+                _this.currentUser = currentUser;
+            }
+        })
+            .subscribe();
+    };
     AuthService.prototype.updateCurrentUser = function (firstName, lastName) {
         this.currentUser.firstName = firstName;
         this.currentUser.lastName = lastName;
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.put("/api/users/" + this.currentUser.id, JSON.stringify(this.currentUser), options);
+    };
+    AuthService.prototype.logout = function () {
+        this.currentUser = undefined;
+        var headers = new http_1.Headers({ 'Content-Type': 'application/json' });
+        var options = new http_1.RequestOptions({ headers: headers });
+        return this.http.post('/api/logout', JSON.stringify({}), options);
     };
     return AuthService;
 }());

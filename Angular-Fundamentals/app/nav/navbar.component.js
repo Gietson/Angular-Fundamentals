@@ -18,6 +18,12 @@ var NavBarComponent = (function () {
         this.eventService = eventService;
         this.searchTerm = '';
     }
+    NavBarComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.eventService.getEvents().subscribe(function (events) {
+            _this.events = events;
+        });
+    };
     NavBarComponent.prototype.searchSessions = function (searchTerm) {
         var _this = this;
         this.eventService.searchSessions(searchTerm).subscribe(function (sessions) {

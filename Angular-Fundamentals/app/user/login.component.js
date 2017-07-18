@@ -1,4 +1,3 @@
-// login.component.ts
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -28,7 +27,6 @@ var LoginComponent = (function () {
                 _this.router.navigate(['events']);
             }
         });
-        this.router.navigate(['events']);
     };
     LoginComponent.prototype.cancel = function () {
         this.router.navigate(['events']);
@@ -38,7 +36,7 @@ var LoginComponent = (function () {
 LoginComponent = __decorate([
     core_1.Component({
         templateUrl: 'app/user/login.component.html',
-        styles: ["\n      em { float:right; color:#E05C65; padding-left:10px; }\n    "]
+        styles: ["\n    em {float:right; color:#E05C65; padding-left:10px;}\n  "]
     }),
     __metadata("design:paramtypes", [auth_service_1.AuthService, router_1.Router])
 ], LoginComponent);

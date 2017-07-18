@@ -53,7 +53,7 @@ export class EventService {
   }
 
 }
-
+/*
 const EVENTS: IEvent[] = [
   {
     id: 1,
@@ -360,5 +360,5 @@ const EVENTS: IEvent[] = [
     ]
   }
 ];
-
+*/
 
