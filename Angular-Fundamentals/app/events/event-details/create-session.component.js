@@ -9,6 +9,7 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+Object.defineProperty(exports, "__esModule", { value: true });
 var core_1 = require("@angular/core");
 var forms_1 = require("@angular/forms");
 var index_1 = require("../shared/index");
@@ -61,8 +62,7 @@ CreateSessionComponent = __decorate([
         selector: 'create-session',
         templateUrl: 'app/events/event-details/create-session.component.html',
         styles: ["\n      em { float:right; color: #E05C65; padding-left:10px; }\n      .error input, .error select, .error textarea { background-color: #E3C3C5; }\n      .error ::-webkit-inpit-placeholder { color: #999; }\n      .error ::-moz-placeholder { color: #999; }\n      .error :-moz-placeholder { color:#999; } \n      .error :ms-input-placeholder { color: #999; }\n    "]
-    }),
-    __metadata("design:paramtypes", [])
+    })
 ], CreateSessionComponent);
 exports.CreateSessionComponent = CreateSessionComponent;
 //# sourceMappingURL=create-session.component.js.map

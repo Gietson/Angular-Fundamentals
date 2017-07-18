@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 var index_1 = require("./events/index");
 var _404_component_1 = require("./errors/404.component");
 exports.appRoutes = [
